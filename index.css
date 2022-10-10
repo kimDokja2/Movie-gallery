@@ -7,8 +7,10 @@ body{
     min-height: 100vh;
     background-color: black;
     color: white;
+    font-family: 'Cabin', sans-serif;
 }
 header{
+
     width: 100%;
     padding: 1em 5%;
     height: 7em;
@@ -16,7 +18,7 @@ header{
     flex-direction: row;
     justify-content: space-between;
     position: fixed;
-    z-index: 10;
+    z-index: 100;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.553), rgba(0, 0, 0, 0));
 }
 
@@ -47,8 +49,7 @@ header{
 }
 .carrusel{
     overflow:hidden;
-    scroll-behavior:smooth ;
-    
+    scroll-behavior:smooth;
 }
 .carrusel-peliculas{
     display: flex;
@@ -71,6 +72,34 @@ header{
     justify-content: end;
     padding-bottom: 5em;
     transition: .3s ease all; /*para el hover*/
+    box-shadow: inset 0 0 100em 5em black;
+}
+.titulo-peli{
+    padding-bottom: .25em;
+}
+.puntaje{
+    font-weight: bold;
+    color: rgb(0, 255, 0);
+    padding-bottom: .5em;
+    text-shadow: 4em;
+}
+.btn-ver{
+    width: 9em;
+    height: 3em;
+    border-radius: 1em;
+    color: white;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 1em;
+    font-weight: bold;
+    transition: .3s ease all;
+}
+.fa-play{
+    margin-right: .5em;
 }
 /*-------------controlador-------------*/
 .controlador{
@@ -85,14 +114,14 @@ header{
     margin: 0 0 0 -4em;
     justify-content: space-around;
     align-items: center;
-   
+    transition: .3s ease all;
 }
 
 .bola{
     
     width: .8em;
     height: .8em;
-    background-color: rgba(85, 0, 255, 0.826);
+    background-color: rgb(85, 0, 255);
     border-radius: .4em;
     margin: 0 .2em;
     flex-grow: 0;
@@ -149,6 +178,7 @@ header{
     border-radius: 1em;
     width: 100%;
     height: 88%;
+    position: relative;
 }
 .img-item img{
     min-width: 5em;
@@ -160,8 +190,30 @@ header{
     transform: scale(1.3);
     transform-origin: center;
 }   
-
+.efecto-hover{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    
+    top:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    color:white;
+    text-shadow: 0 0 1em rgb(0, 255, 255);
+    opacity: 0;
+}
 .peli-item:hover{
-    transform:scale(1.2);
+    transform:scale(1.1); 
+    color: rgb(0, 200, 255);
+    filter: saturate(1.5);
+}
+.btn-ver:hover{
+    color: rgb(255, 255, 255);
+    background-color: white;
+}
+.efecto-hover:hover{
+    opacity: 1;
     
 }

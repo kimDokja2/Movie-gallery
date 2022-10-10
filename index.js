@@ -28,8 +28,10 @@ async function obtenerPeliculas(url){
        container.innerHTML += `
        <div class="peli-item">
            <div class="img-item">
-       
-                <img src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path} " alt="imagen">  
+                <img src="https://image.tmdb.org/t/p/w500/${pelicula.poster_path} " alt="imagen">
+                <div class="efecto-hover">
+                <i class="fa-regular fa-circle-play"></i>
+                </div>  
             </div> 
             <h4 class="titulo-item">${pelicula.title}</h4> 
        </div>
@@ -47,10 +49,17 @@ async function generarTop5Carrusel(url){
     carrusel.innerHTML="";
     for(let index=0 ; index<5 ;index++){
         carrusel.innerHTML+=`<div class="bg-top${index+1} "> 
-        <h1>${peliculas[index].title}</h1>
-        <span class="puntaje">${peliculas[index].vote_average} </span>
-        <p class="descripcion">${peliculas[index].overview}</p>
-        <a  href="#"><i class="fa-solid fa-play"></i>Ver Pelicula</a></div>`;
+            
+            <h1 class="titulo-peli">${peliculas[index].title}</h1>
+            <span class="puntaje ">${peliculas[index].vote_average} </span>
+            <p class="descripcion ">${peliculas[index].overview}</p>
+            <a class="btn-ver" href="#">
+            <i class="fa-solid fa-play"></i>
+            Ver Película
+            </a>
+            
+        </div>
+        `;
     }
     //no encotre la forma de generarlos con un maldito for ya que no puedo usar el ${}dentro del .querySelector("${}") 😭😭😭
     document.querySelector(".bg-top1").style.backgroundImage = `url('https://image.tmdb.org/t/p/original${peliculas[0].backdrop_path}'`;
