@@ -1,0 +1,167 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+}
+header{
+    width: 100%;
+    padding: 1em 5%;
+    height: 7em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 10;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.553), rgba(0, 0, 0, 0));
+}
+
+.btn-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 3em;
+    width: 3em;
+    background-color: rgb(85, 0, 255);
+    border-radius: 50%;
+}
+[class*="linea-"]{
+    display: block;
+    border-radius: .25em;
+    width: 1.5em;
+    height: .3em;
+    margin-bottom: .1em;
+    background-color: rgb(255, 255, 255);
+}
+.slider {display: none;}
+
+
+/*--------------carrusel-----------*/
+.seccion-carrusel{
+    position: relative;
+}
+.carrusel{
+    overflow:hidden;
+    scroll-behavior:smooth ;
+    
+}
+.carrusel-peliculas{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    width: 500%;
+
+}
+[class*="bg-top"]{
+    padding: 0 1%;
+    width: 100%;
+    height: 35em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-origin: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 5em;
+    transition: .3s ease all; /*para el hover*/
+}
+/*-------------controlador-------------*/
+.controlador{
+    width: 8em;
+    height: 2em;
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0 auto;
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    margin: 0 0 0 -4em;
+    justify-content: space-around;
+    align-items: center;
+   
+}
+
+.bola{
+    
+    width: .8em;
+    height: .8em;
+    background-color: rgba(85, 0, 255, 0.826);
+    border-radius: .4em;
+    margin: 0 .2em;
+    flex-grow: 0;
+    transition-duration: .3s;
+    cursor: pointer;
+}
+.active{
+    flex-grow: 1;
+    background-color: white;
+}
+
+
+/*-------------lista peliculas-------------*/
+.lista-titulo{
+    padding: 1em 5%;
+}
+.container{
+    width: 100%;
+    padding: 0 5%;
+    display: grid;
+    
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr ;
+    grid-auto-rows: auto;
+    gap:1em;
+    
+
+}
+
+
+.peli-item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s ease all; /*para que despues del hover las cosas regresen tranquilamente y no bruscamente */
+}
+.titulo-item{
+    
+    position: relative;
+    
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12%;
+    width: 100%;
+    text-align: center;
+}
+.img-item{
+    overflow: hidden;
+    border-radius: 1em;
+    width: 100%;
+    height: 88%;
+}
+.img-item img{
+    min-width: 5em;
+    max-width: 100%;
+    
+    overflow: hidden;
+    position: relative;
+    
+    transform: scale(1.3);
+    transform-origin: center;
+}   
+
+.peli-item:hover{
+    transform:scale(1.2);
+    
+}

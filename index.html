@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://kit.fontawesome.com/2e8453ccb0.js" crossorigin="anonymous"></script>
+    <title>Peliculas</title>
+</head>
+<body>  
+    <header >
+        <h2 class="icono-page ">Peliculas</h2>
+        <div class="slider">
+            <nav>
+                <ul>
+                    <li>Peliculas</li>
+                    <li>Series</li>
+                    <li>Anime</li>
+                </ul>
+            </nav>
+            <form id="form" action="#">
+                <div class="form-icon">
+                    <input type="text" id="buscar" class="input-buscar" placeholder="Bucar...">
+                    <button class="btn-buscar">buscar</button>
+                </div>
+            </form>  
+        </div>
+
+        <a class="btn-slider" href="#">
+            <span class="linea-1"></span>
+            <span class="linea-2"></span>
+            <span class="linea-3"></span>
+        </a>
+        
+    </header>
+    <div class="seccion-carrusel">
+        <div class="carrusel ">
+            <div class="carrusel-peliculas">
+                <div class="bg-top5">
+                    <h1 >top1</h1>
+                    <span class="puntaje"></span>
+                    <p class="descripcion"></p>
+                    <a  href="#"><i class="fa-solid fa-play"></i>Ver Pelicula</a>
+                </div>             
+            </div>
+        </div>
+        <div class="controlador">
+                <div class="s1 bola active"></div>
+                <div class="s2 bola"></div>
+                <div class="s3 bola"></div>
+                <div class="s4 bola"></div>
+                <div class="s5 bola"></div>
+        </div>    
+    </div>
+    
+    <h1 class="lista-titulo">lista de peliculas</h1>
+    <div class="container"></div>
+
+
+    
+    <script src="./index.js" ></script>
+</body>
+</html>
