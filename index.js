@@ -102,6 +102,18 @@ let intervaloID=null;
 intervaloID=setInterval(nextActive,3500);
 
 
+//-------------boton activador del aside-------
+const btnAside = document.querySelector(".btn-activar-nav");
+btnAside.addEventListener("click", ()=>{
+    if(document.querySelector(".mostrar-aside")===null){
+        btnAside.classList.add("mostrar-aside");
+        document.getElementById("aside-nav").style="left:0;"
+    }else{
+        btnAside.classList.remove("mostrar-aside");
+        document.getElementById("aside-nav").style="left:-100%;"
+    }
+    
+})
 
 generarTop5Carrusel(apiUrl);
 obtenerPeliculas(apiUrl);

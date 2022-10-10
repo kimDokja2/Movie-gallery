@@ -12,17 +12,20 @@ body{
 header{
 
     width: 100%;
-    padding: 1em 5%;
+    padding: 0 5%;
+    padding-bottom: 2em;
     height: 7em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     position: fixed;
-    z-index: 100;
+    z-index: 10;
+    background-clip:padding-box;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.553), rgba(0, 0, 0, 0));
 }
-
-.btn-slider {
+/*--------Aside----------------*/
+.btn-activar-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,7 +34,10 @@ header{
     width: 3em;
     background-color: rgb(85, 0, 255);
     border-radius: 50%;
+    z-index: 10;
+    transition: .3s ease all;
 }
+
 [class*="linea-"]{
     display: block;
     border-radius: .25em;
@@ -39,10 +45,83 @@ header{
     height: .3em;
     margin-bottom: .1em;
     background-color: rgb(255, 255, 255);
+    transition: .3s ease all;
 }
-.slider {display: none;}
+.mostrar-aside .linea-1{
+    position: relative;
+    transform: rotate(45deg);
+    top: .4em;
+}
+.mostrar-aside .linea-2{
+    position: relative;
+    transform: rotate(45deg);
+    top:-.37em;
+    opacity: .5;
+    top: 0em;
+}
+.mostrar-aside .linea-3{
+    position: relative;
+    transform: rotate(-45deg);
+    top: -.4em;
+}
+.contenedor-nav-form {
+    width: 60%;
+    height: 100%;
+    top:0;
+    background-color: rgb(72, 0, 255);
+    position: fixed;
+    left: -100%;
+    z-index: 1;
+    padding: 10em 5% 0 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    transition: .5s ease all;
+}
 
-
+.icono-page{
+    z-index: 10;
+}
+.form-icon{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.input-buscar{
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
+    border-radius: .3em;
+    padding: .2em .3em;
+    
+}
+.btn-buscar{
+    background-color: transparent;
+    margin-left: .5em;
+    border: none;
+    cursor: pointer;
+}
+.fa-solid{
+    font-size: 2em;
+    color: white;
+}
+li{
+    list-style: none;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+.contenedor-nav-form li:first-child{
+    text-decoration: underline;
+    transform: scale(1.1);
+    transform-origin: 0%;
+    font-weight: bold;
+    
+}
+li:hover{
+    font-weight: bold;
+    transform: scale(1.1);
+    transform-origin: 0%;
+    color: aqua;
+}
 /*--------------carrusel-----------*/
 .seccion-carrusel{
     position: relative;
@@ -128,7 +207,7 @@ header{
     transition-duration: .3s;
     cursor: pointer;
 }
-.active{
+.controlador .active{
     flex-grow: 1;
     background-color: white;
 }
@@ -159,13 +238,12 @@ header{
     height: 100%;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
     transition: .3s ease all; /*para que despues del hover las cosas regresen tranquilamente y no bruscamente */
 }
 .titulo-item{
     
     position: relative;
-    
-    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,6 +281,7 @@ header{
     color:white;
     text-shadow: 0 0 1em rgb(0, 255, 255);
     opacity: 0;
+    cursor: pointer;
 }
 .peli-item:hover{
     transform:scale(1.1); 
@@ -210,10 +289,9 @@ header{
     filter: saturate(1.5);
 }
 .btn-ver:hover{
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     background-color: white;
 }
 .efecto-hover:hover{
     opacity: 1;
-    
 }
