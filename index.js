@@ -112,8 +112,21 @@ btnAside.addEventListener("click", ()=>{
         btnAside.classList.remove("mostrar-aside");
         document.getElementById("aside-nav").style="left:-100%;"
     }
-    
 })
+
+//-------aplicar una clase cuando el scroll baje a 360px
+const header=document.querySelector(".header");
+function pintar(){
+    // en el html del body agregé el atributo: onscroll="pintar()"
+    console.log(container.getBoundingClientRect().top.toFixed());
+    if (container.getBoundingClientRect().top.toFixed() < 380){
+        header.classList.add("no-transparente");
+    }else{
+        header.classList.remove("no-transparente");
+    }
+}
+    
+
 
 generarTop5Carrusel(apiUrl);
 obtenerPeliculas(apiUrl);
