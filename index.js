@@ -11,7 +11,10 @@ const apiUrl=baseUrl+"/discover/movie?sort_by=popularity.desc&"+apiKey+"&languag
 const imgUrl="https://image.tmdb.org/t/p/w500"
 
 
-//ejemplos para luego guiarme como construir los URL
+const searchURL=baseUrl+"/search/movie?"+apiKey+"&language=es-ES"+"&query=";
+
+
+//ejemplos para luego guiarme como construir los URLs
 const URL2="https://api.themoviedb.org/3/search/movie?api_key=45a21631d0f43cfa02f7de25037a5536&query=woman&language=es-ES"
 const URL="https://api.themoviedb.org/3/movie/popular?api_key=45a21631d0f43cfa02f7de25037a5536&language=es-ES&page=1"
 
@@ -34,9 +37,7 @@ async function obtenerPeliculas(url){
                 </div>  
             </div> 
             <h4 class="titulo-item">${pelicula.title}</h4> 
-       </div>
-         
-       `;
+       </div>`;
     });
 }
 
@@ -68,7 +69,22 @@ async function generarTop5Carrusel(url){
     document.querySelector(".bg-top4").style.backgroundImage = `url('https://image.tmdb.org/t/p/original${peliculas[3].backdrop_path}'`;
     document.querySelector(".bg-top5").style.backgroundImage = `url('https://image.tmdb.org/t/p/original${peliculas[4].backdrop_path}'`;
     }
-    
+
+//  generar peliculas con termino enviado  
+const form=document.getElementById("form");
+const buscar=document.getElementById("buscar");
+form.addEventListener("submit",(e)=>{
+    //evitar el envio predeterminado
+    e.preventDefault();
+
+    const terminoBuscado=buscar.value;
+    //si quiero saber si el terminoBuscado existe, ya que en JS "", 0,null,undifined son valores equivalentes a False y strings numeros objetos, arrays con contenido son valores equivalentes a True
+    if(terminoBuscado){
+    obtenerPeliculas(searchURL+terminoBuscado);
+    }else{
+    obtenerPeliculas(apiUrl);
+    }
+})    
 
 //---------------carrusel--------------------    
 const bolas=document.querySelectorAll(".bola");
@@ -85,7 +101,7 @@ bolas.forEach(
     })
 
 });
-
+//---carrusel automatico con setInterval--
 function nextActive(){
             bolas[pos].classList.remove("active");
             if (pos<4){
@@ -130,4 +146,3 @@ function pintar(){
 
 generarTop5Carrusel(apiUrl);
 obtenerPeliculas(apiUrl);
-
