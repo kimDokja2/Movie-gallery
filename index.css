@@ -9,6 +9,7 @@ body{
     color: white;
     font-family: 'Cabin', sans-serif;
 }
+
 .header{
 
     width: 100%;
@@ -72,7 +73,7 @@ body{
     width: 60%;
     height: 100%;
     top:0;
-    background-color: rgb(72, 0, 255);
+    background-color: rgb(10, 0, 33);
     position: fixed;
     left: -100%;
     z-index: 1;
@@ -82,21 +83,48 @@ body{
     justify-content: start;
     transition: .5s ease all;
 }
+nav{
+    display: flex;
+    width: 100%;
+    height: 8em;
+}
+nav ul {
+    height: 8em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+li{
+    list-style: none;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+form{
+    height: 5em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .icono-page{
     z-index: 10;
 }
 .form-icon{
+    width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
 }
 .input-buscar{
     font-family: 'Cabin', sans-serif;
-    font-size: 16px;
-    border-radius: .3em;
-    padding: .2em .3em;
-    
+    font-size: 1em;
+    border-radius: .5em;
+    padding: .2em .5em;
+    width: 100%;
+    outline: none;
 }
 .btn-buscar{
     background-color: transparent;
@@ -108,23 +136,12 @@ body{
     font-size: 2em;
     color: white;
 }
-li{
-    list-style: none;
-    margin-bottom: 1em;
-    cursor: pointer;
-}
+
 .contenedor-nav-form li:first-child{
     text-decoration: underline;
     transform: scale(1.1);
     transform-origin: 0%;
     font-weight: bold;
-    
-}
-li:hover{
-    font-weight: bold;
-    transform: scale(1.1);
-    transform-origin: 0%;
-    color: aqua;
 }
 /*--------------carrusel-----------*/
 .seccion-carrusel{
@@ -226,13 +243,10 @@ li:hover{
     width: 100%;
     padding: 0 5%;
     display: grid;
-    
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr ;
     grid-auto-rows: auto;
-    gap:1em;
-    
-
+    gap:2em;
 }
 
 
@@ -281,7 +295,17 @@ footer{
     justify-content: center;
     align-items: center;
 } 
+.link-footer{
+    text-decoration: none;
+}
 @media (hover: hover){
+    
+    li:hover, .link-footer:hover{
+        font-weight: bold;
+        transform: scale(1.1);
+        transform-origin: 0%;
+        color: aqua;
+    }
    .efecto-hover{
     position:absolute;
     width: 100%;
@@ -296,19 +320,79 @@ footer{
     text-shadow: 0 0 1em rgb(0, 255, 255);
     opacity: 0;
     cursor: pointer;
-}
-.peli-item:hover{
-    transform:scale(1.1); 
-    color: rgb(0, 200, 255);
-    filter: saturate(1.5);
-}
-.btn-ver:hover {
-    color: rgb(1, 0, 0);
-    background-color: white;
-}
+    }
+    .peli-item:hover{
+        transform:scale(1.1); 
+        color: rgb(0, 200, 255);
+        filter: saturate(1.5);
+    }
+    .btn-ver:hover {
+        color: rgb(1, 0, 0);
+        background-color: white;
+    }
 
-.efecto-hover:hover{
-    opacity: 1;
-} 
+    .efecto-hover:hover{
+        opacity: 1;
+    } 
+}
+@media screen and (min-width:600px) {
+    .container{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .btn-activar-nav{
+        display: none;
+    }
+    
+    .contenedor-nav-form{
+        width: calc(95% - 120px);
+        height: 5em;
+        position:fixed;
+        flex-direction: row;
+        padding: 0 5%;
+        margin: 0;
+        top: 0;
+        left: calc(5% + 120px);
+        background-color: transparent;
+        justify-content: space-between;
+    }
+    nav {
+        flex-direction: row;
+        height: 5em;
+        width: 100%
+    }
+    form{
+        width: 100%;
+        justify-content: end;
+    }
+    .form-icon{
+        width: 100%;
+    }
+    nav ul {
+        flex-direction: row;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    ul li {
+        margin-right: 1em;
+        margin-bottom: 0;;
+    }
+
+}
+@media screen and (min-width:900px) {
+    .container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    body{
+        font-size: 18px;
+    }
+}
+@media screen and (min-width:1200px) {
+    .container{
+        grid-template-columns: repeat(5, 1fr);
+    }
+    body{
+        font-size: 20px;
+    }
 }
 
