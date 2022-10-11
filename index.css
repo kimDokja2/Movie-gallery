@@ -200,7 +200,7 @@ form{
     margin-top: 1em;
     font-weight: bold;
     transition: .3s ease all;
-    
+    text-shadow: none;
 }
 .fa-play{
     margin-right: .3em;
